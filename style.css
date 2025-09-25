@@ -1,3 +1,4 @@
+
 body {
  font-family: "futura";
  background-color: #FAFBFF;
@@ -52,6 +53,22 @@ button:hover {
   border: 2px solid #0018A4;
 }
 
+.time-btn:hover {
+  background: #FF6589;
+  color: white;
+}
+
+.meal-btn.active {
+ background: #0018A4;
+ color: white;
+}
+
+.time-btn.active {
+ background: #FF6589;
+ color: white;
+ border: 2px solid transparent;
+}
+
 .recipe-card-container {
   display: flex;
   flex-direction: row;
@@ -69,6 +86,7 @@ button:hover {
   margin-top: 30px;
   padding: 16px 16px 24px 16px;
   gap: 16px;
+  box-sizing: border-box;
   box-shadow: 0 0 5px 5px #0019a405;
 }
 

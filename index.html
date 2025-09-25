@@ -28,17 +28,17 @@
     <div class="meal-filter-container">
       <h2>Meals</h2>
       <div class="meal-buttons-container">
-        <button class="meal-btn">Breakfast</button>
-        <button class="meal-btn">Lunch</button>
-        <button class="meal-btn">Fika</button>
-        <button class="meal-btn">Dinner</button>
+        <button class="meal-btn" id="btnBreakfast">Breakfast</button>
+        <button class="meal-btn"id="btnLunch">Lunch</button>
+        <button class="meal-btn" id="btnFika">Fika</button>
+        <button class="meal-btn" id="btnDinner">Dinner</button>
       </div>
     </div>
     <div class="sorting-time-container">
       <h2>Cooking time</h2> 
       <div class="time-buttons-container">
-        <button class="time-btn">Ascending</button>
-        <button class="time-btn">Descending</button>
+        <button class="time-btn" id="btnAscending">Ascending</button>
+        <button class="time-btn" id="btnDescending">Descending</button>
       </div>
     </div>
   </div>
@@ -52,6 +52,7 @@
  <div class="recipe-card-container">
    <div class="placeholder recipe-card">
      <h3>Placeholder for filters</h3>
+     <p id="placeholderText"></p>
     </div>
     <div class="recipe-card"
     data-meal="Breakfast" data-time="30">
