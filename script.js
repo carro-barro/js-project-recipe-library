@@ -8,17 +8,17 @@ const placeholderText = document.getElementById("placeholderText")
 const mealBtns = document.querySelectorAll(".meal-btn")
 const timeBtns = document.querySelectorAll(".time-btn")
 
-mealBtns.forEach(button => {
-  button.addEventListener("click", () => {
-    mealBtns.forEach(btn => btn.classList.remove("active"))
-    button.classList.add("active")
+mealBtns.forEach(clickedButton => {
+  clickedButton.addEventListener("click", () => {
+    mealBtns.forEach(currentButton => currentButton.classList.remove("active"))
+    clickedButton.classList.add("active")
   })
 })
 
-timeBtns.forEach(button =>{
-  button.addEventListener("click", () => {
-    timeBtns.forEach(btn => btn.classList.remove("active"))
-    button.classList.add("active")
+timeBtns.forEach(clickedButton =>{
+  clickedButton.addEventListener("click", () => {
+    timeBtns.forEach(currentButton => currentButton.classList.remove("active"))
+    clickedButton.classList.add("active")
   })
 })
 
