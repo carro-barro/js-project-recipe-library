@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
   <title>Carolinas recipe library</title>
 </head>
+
 <body>
   <h1>Recipe library</h1>
   <!-- filters -->
@@ -28,44 +36,54 @@
     <div class="meal-filter-container">
       <h2>Meals</h2>
       <div class="meal-buttons-container">
-        <button class="meal-btn" id="btnBreakfast">Breakfast</button>
-        <button class="meal-btn"id="btnLunch">Lunch</button>
-        <button class="meal-btn" id="btnFika">Fika</button>
-        <button class="meal-btn" id="btnDinner">Dinner</button>
+        <button
+          class="meal-btn"
+          id="btnAll"
+        >All</button>
+        <button
+          class="meal-btn"
+          id="btnBreakfast"
+        >Breakfast</button>
+        <button
+          class="meal-btn"
+          id="btnLunch"
+        >Lunch</button>
+        <button
+          class="meal-btn"
+          id="btnFika"
+        >Fika</button>
+        <button
+          class="meal-btn"
+          id="btnDinner"
+        >Dinner</button>
       </div>
     </div>
     <div class="sorting-time-container">
-      <h2>Cooking time</h2> 
+      <h2>Cooking time</h2>
       <div class="time-buttons-container">
-        <button class="time-btn" id="btnAscending">Ascending</button>
-        <button class="time-btn" id="btnDescending">Descending</button>
+        <button
+          class="time-btn"
+          id="btnAscending"
+        >Ascending</button>
+        <button
+          class="time-btn"
+          id="btnDescending"
+        >Descending</button>
       </div>
     </div>
   </div>
-<!-- <div class="sorting-ingredients-container">
+  <!-- <div class="sorting-ingredients-container">
   <h2>Ingredients</h2>
   <button class="sorting-ingredient-btn">less the 10</button>
   <button class="sorting-ingredient-btn">More then 10</button>
 </div> -->
 
-<!-- recipe cards -->
- <div class="recipe-card-container">
-   <div class="placeholder recipe-card">
-     <h3>Placeholder for filters</h3>
-     <p id="placeholderText"></p>
-    </div>
-    
-    <div class="recipe-card"
-    data-meal="Breakfast" data-time="30">
-    <img src="img/French-toast.jpg" alt="French toast">
-    <h3>French Toast</h3>
-    <hr>
-    <h4><span class="label">Meal:</span><span class="value"> Breakfast</span> <br><span class="label">Cooking time:</span><span class="value"> 30min</span></h4>
-    <hr>
-    <h4>Ingredients</h4>
-    <p>4 slices of bread<br>1 egg<br>1.5dl milk<br>1tbs sugar</p>
-  </div>
-</div>
- <script src="script.js"></script>
+  <!-- recipe cards -->
+  <div
+    class="recipe-card-container"
+    id="recipeContainer"
+  ></div>
+  <script src="script.js"></script>
 </body>
+
 </html>

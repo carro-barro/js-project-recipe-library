@@ -1,8 +1,7 @@
-
 body {
- font-family: "futura";
- background-color: #FAFBFF;
- margin: 16px 8px;
+  font-family: "futura";
+  background-color: #FAFBFF;
+  margin: 16px 8px;
 }
 
 h1 {
@@ -59,14 +58,14 @@ button:hover {
 }
 
 .meal-btn.active {
- background: #0018A4;
- color: white;
+  background: #0018A4;
+  color: white;
 }
 
 .time-btn.active {
- background: #FF6589;
- color: white;
- border: 2px solid transparent;
+  background: #FF6589;
+  color: white;
+  border: 2px solid transparent;
 }
 
 .recipe-card-container {
@@ -81,6 +80,7 @@ button:hover {
   flex-direction: column;
   border-radius: 16px;
   width: 300px;
+  height: fit-content;
   background: white;
   border: 1px solid #E9E9E9;
   margin-top: 30px;
@@ -90,8 +90,14 @@ button:hover {
   box-shadow: 0 0 5px 5px #0019a405;
 }
 
+.recipe-card:hover {
+  border: 2px solid #0018A4;
+}
+
 img {
   border-radius: 12px;
+  height: 200px;
+  object-fit: cover;
 }
 
 h3 {

@@ -1,3 +1,4 @@
+const btnAll = document.getElementById("btnAll")
 const btnBreakfast = document.getElementById("btnBreakfast")
 const btnLunch = document.getElementById("btnLunch")
 const btnFika = document.getElementById("btnFika")
@@ -15,50 +16,145 @@ mealBtns.forEach(clickedButton => {
   })
 })
 
-timeBtns.forEach(clickedButton =>{
+timeBtns.forEach(clickedButton => {
   clickedButton.addEventListener("click", () => {
     timeBtns.forEach(currentButton => currentButton.classList.remove("active"))
     clickedButton.classList.add("active")
   })
 })
 
+const recipes = [
+  {
+    id: 1,
+    title: "French toast",
+    image: "img/French-toast.jpg",
+    readyInMinutes: 30,
+    meal: "Breakfast",
+    cuisine: "European",
+    ingredients: [
+      "bread",
+      "eggs",
+      "flour",
+      "sugar",
+      "milk"
+    ]
+  },
+  {
+    id: 2,
+    title: "Beef Stew",
+    image: "img/beef-stew.jpg",
+    readyInMinutes: 90,
+    meal: "Dinner",
+    cuisine: "European",
+    ingredients: [
+      "beef chunks",
+      "potatoes",
+      "carrots",
+      "onion",
+      "garlic",
+      "tomato paste",
+      "beef broth",
+      "red wine",
+      "bay leaves",
+      "thyme",
+      "salt",
+      "black pepper",
+      "butter",
+      "flour",
+      "celery",
+      "mushrooms"
+    ]
+  },
+  {
+    id: 3,
+    title: "Vegan Lentil Soup",
+    image: "img/lentil-soup.jpg",
+    readyInMinutes: 45,
+    meal: "Dinner",
+    cuisine: "Mediterranean",
+    ingredients: [
+      "red lentils",
+      "carrots",
+      "onion",
+      "garlic",
+      "tomato paste",
+      "cumin",
+      "paprika",
+      "vegetable broth",
+      "olive oil",
+      "salt"
+    ]
+  },
+  {
+    id: 4,
+    title: "Vegetarian Pesto Pasta",
+    image: "img/pasta-pesto.jpg",
+    readyInMinutes: 25,
+    meal: "Lunch",
+    cuisine: "Italian",
+    ingredients: [
+      "pasta",
+      "basil",
+      "parmesan cheese",
+      "garlic",
+      "pine nuts",
+      "olive oil",
+      "salt",
+      "black pepper"
+    ]
+  }
+]
 
-const filterBreakfast = () => {
-// add the filtering that happens when breakfast btn is clicked
-placeholderText.innerText = `Good morning! Ready for breakfast?`
+
+const recipeContainer = document.getElementById("recipeContainer")
+
+
+const showRecipes = (recipesToShow) => {
+  recipeContainer.innerHTML = `` //clear old cards
+
+  recipesToShow.forEach(recipe => {
+    recipeContainer.innerHTML += `
+    <div class="recipe-card">
+    <img src="${recipe.image}" alt="{${recipe.title}}">
+    <h3>${recipe.title}</h3>
+    <hr>
+    <h4><span class="label">Meal:</span><span class="value">${recipe.meal}</span><br><span class="label">Cooking time:</span><span class="value">${recipe.readyInMinutes}</span></h4>
+    <hr>
+    <h4>Ingredients</h4>
+    <p>${recipe.ingredients.join("<br>")}</p>
+    `
+  })
 }
 
+showRecipes(recipes)
 
-const filterLunch= () => {
-  // add the filtering that happens when Lunch btn is clicked
-  placeholderText.innerText = `Is it already lunchtime?!`
+
+
+const filterByMeal = (mealType) => {
+  if (mealType === "All") {
+    showRecipes(recipes)
+  } else {
+    const filtered = recipes.filter(r => r.meal === mealType)
+    showRecipes(filtered)
+  }
 }
 
-
-const filterFika = () => {
-  // add the filtering that happens when Fika btn is clicked
-  placeholderText.innerText = `You can never go wrong with some fika`
-}
-
-
-const filterDinner = () => {
-  // add the filtering that happens when Lunch btn is clicked
-  placeholderText.innerText = `Yummy, make me some dinner`
-}
 
 
 const sortingAscending = () => {
-  placeholderText.innerText = `I see your in a hurry to make something to eat`
+
 }
 
 
 const sortingDescending = () => {
-  placeholderText.innerText = `you want to take your time an make an amazing meal`
+
 }
 
-btnBreakfast.addEventListener("click", filterBreakfast)
-btnLunch.addEventListener("click", filterLunch)
-btnFika.addEventListener("click", filterFika)
-btnDinner.addEventListener("click", filterDinner)
-btnAscending.addEventListener("click", sortingAscending)
-btnDescending.addEventListener("click", sortingDescending)
+btnAll.addEventListener("click", () => filterByMeal("All"))
+btnBreakfast.addEventListener("click", () => filterByMeal("Breakfast"))
+btnLunch.addEventListener("click", () => filterByMeal("Lunch"))
+btnFika.addEventListener("click", () => filterByMeal("Fika"))
+btnDinner.addEventListener("click", () => filterByMeal("Dinner"))
+// btnAscending.addEventListener("click", sortingAscending)
+// btnDescending.addEventListener("click", sortingDescending)
+
