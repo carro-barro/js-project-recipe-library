@@ -20,6 +20,7 @@ h2 {
   display: flex;
   flex-direction: row;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .meal-buttons-container,
@@ -68,6 +69,14 @@ button:hover {
   border: 2px solid transparent;
 }
 
+.random-btn {
+  background: #ffe065;
+}
+
+.random-btn.active {
+  background: #b2ff65;
+}
+
 .recipe-card-container {
   display: flex;
   flex-direction: row;
@@ -100,7 +109,7 @@ img {
   object-fit: cover;
 }
 
-h3 {
+.recipe-card h3 {
   font-size: 22px;
   font-weight: 700;
   margin: 0;
@@ -135,4 +144,13 @@ p {
   font-size: 16px;
   font-weight: 500;
   margin: 0;
+}
+
+.no-results-container {
+  font-size: 16px;
+  max-width: 700px;
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

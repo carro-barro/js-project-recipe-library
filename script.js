@@ -1,28 +1,3 @@
-const btnAll = document.getElementById("btnAll")
-const btnBreakfast = document.getElementById("btnBreakfast")
-const btnLunch = document.getElementById("btnLunch")
-const btnFika = document.getElementById("btnFika")
-const btnDinner = document.getElementById("btnDinner")
-const btnAscending = document.getElementById("btnAscending")
-const btnDescending = document.getElementById("btnDescending")
-const placeholderText = document.getElementById("placeholderText")
-const mealBtns = document.querySelectorAll(".meal-btn")
-const timeBtns = document.querySelectorAll(".time-btn")
-
-mealBtns.forEach(clickedButton => {
-  clickedButton.addEventListener("click", () => {
-    mealBtns.forEach(currentButton => currentButton.classList.remove("active"))
-    clickedButton.classList.add("active")
-  })
-})
-
-timeBtns.forEach(clickedButton => {
-  clickedButton.addEventListener("click", () => {
-    timeBtns.forEach(currentButton => currentButton.classList.remove("active"))
-    clickedButton.classList.add("active")
-  })
-})
-
 const recipes = [
   {
     id: 1,
@@ -105,25 +80,53 @@ const recipes = [
   }
 ]
 
-
+const btnAll = document.getElementById("btnAll")
+const btnBreakfast = document.getElementById("btnBreakfast")
+const btnLunch = document.getElementById("btnLunch")
+const btnFika = document.getElementById("btnFika")
+const btnDinner = document.getElementById("btnDinner")
+const btnAscending = document.getElementById("btnAscending")
+const btnDescending = document.getElementById("btnDescending")
+const placeholderText = document.getElementById("placeholderText")
+const mealBtns = document.querySelectorAll(".meal-btn")
+const timeBtns = document.querySelectorAll(".time-btn")
+const randomBtn = document.getElementById("btnRandom")
 const recipeContainer = document.getElementById("recipeContainer")
+const noResultsContainer = document.getElementById("noResultsContainer")
+
+
+mealBtns.forEach(clickedButton => {
+  clickedButton.addEventListener("click", () => {
+    mealBtns.forEach(currentButton => currentButton.classList.remove("active"))
+    clickedButton.classList.add("active")
+  })
+})
+
+timeBtns.forEach(clickedButton => {
+  clickedButton.addEventListener("click", () => {
+    timeBtns.forEach(currentButton => currentButton.classList.remove("active"))
+    clickedButton.classList.add("active")
+  })
+})
+
 
 
 const showRecipes = (recipesToShow) => {
-  recipeContainer.innerHTML = `` //clear old cards
+  recipeContainer.innerHTML = ``
 
   recipesToShow.forEach(recipe => {
     recipeContainer.innerHTML += `
     <div class="recipe-card">
-    <img src="${recipe.image}" alt="{${recipe.title}}">
+    <img src="${recipe.image}" alt="${recipe.title}">
     <h3>${recipe.title}</h3>
     <hr>
-    <h4><span class="label">Meal:</span><span class="value">${recipe.meal}</span><br><span class="label">Cooking time:</span><span class="value">${recipe.readyInMinutes}</span></h4>
+    <h4><span class="label">Meal:</span><span class="value"> ${recipe.meal}</span><br><span class="label">Cooking time:</span><span class="value"> ${recipe.readyInMinutes} min</span></h4>
     <hr>
     <h4>Ingredients</h4>
     <p>${recipe.ingredients.join("<br>")}</p>
     `
   })
+
 }
 
 showRecipes(recipes)
@@ -134,27 +137,48 @@ const filterByMeal = (mealType) => {
   if (mealType === "All") {
     showRecipes(recipes)
   } else {
-    const filtered = recipes.filter(r => r.meal === mealType)
-    showRecipes(filtered)
-  }
-}
+    const filtered = recipes.filter(recipe => recipe.meal === mealType)
 
+    if (filtered.length > 0) {
+      noResultsContainer.innerHTML = ``
+      showRecipes(filtered)
+    } else {
+      recipeContainer.innerHTML = ``
+      noResultsContainer.innerHTML = `
+      <div class="no-results-container">
+        <h3>No recipes found for "${mealType}"</h3>
+        <p>Try another filter</p>
+        </div>
+      `
+    }
+  }
+};
 
 
 const sortingAscending = () => {
-
+  const sortByTime = recipes.sort((a, b) => a.readyInMinutes - b.readyInMinutes)
+  showRecipes(sortByTime)
 }
 
 
 const sortingDescending = () => {
-
+  const sortByTime = recipes.sort((a, b) => b.readyInMinutes - a.readyInMinutes)
+  showRecipes(sortByTime)
 }
+
+const getRandomRecipe = () => {
+  const randomIndex = Math.floor(Math.random() * recipes.length)
+  const randomRecipe = recipes[randomIndex]
+  showRecipes([randomRecipe])
+}
+
+
 
 btnAll.addEventListener("click", () => filterByMeal("All"))
 btnBreakfast.addEventListener("click", () => filterByMeal("Breakfast"))
 btnLunch.addEventListener("click", () => filterByMeal("Lunch"))
 btnFika.addEventListener("click", () => filterByMeal("Fika"))
 btnDinner.addEventListener("click", () => filterByMeal("Dinner"))
-// btnAscending.addEventListener("click", sortingAscending)
-// btnDescending.addEventListener("click", sortingDescending)
-
+btnAscending.addEventListener("click", sortingAscending)
+btnDescending.addEventListener("click", sortingDescending)
+randomBtn.addEventListener("click", getRandomRecipe)
