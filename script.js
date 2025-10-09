@@ -127,7 +127,6 @@ const getRandomRecipe = () => {
 
 // ====== DATA FETCHING (with caching + error handling) ======
 const fetchData = async (URL) => {
-  console.log("fetching", URL)
   loading.style.display = "block"
   recipeContainer.innerHTML = ``
   noResultsContainer.innerHTML = ``
@@ -141,16 +140,12 @@ const fetchData = async (URL) => {
 
     // Use cache if still valid
     if (cachedData && cacheTime && now - cacheTime < sixHours) {
-      console.log("Using cached recipes")
       recipeInfo = JSON.parse(cachedData)
       loading.style.display = "none"
       filterAndSorting()
     } else {
       // Otherwise, fetch new data
       const response = await fetch(URL)
-      console.log("fetch succeeded")
-      console.log("status code", response.status)
-      console.log("response ok", response.ok)
 
       // Handle API quota errors
       if (!response.ok) {
@@ -176,12 +171,10 @@ const fetchData = async (URL) => {
       localStorage.setItem("cachedRecipes", JSON.stringify(recipeInfo))
       localStorage.setItem("cacheTime", Date.now())
 
-      console.log("Fetched new recipes")
       loading.style.display = "none"
       filterAndSorting()
     }
   } catch (err) {
-    console.error("error is happening", err)
     loading.style.display = "none"
     noResultsContainer.innerHTML = `
       <div class="no-results-container">
