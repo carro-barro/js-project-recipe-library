@@ -17,21 +17,6 @@
 <body>
   <h1>Recipe library</h1>
   <!-- filters -->
-
-  <!-- <div class="dietary-filters-container">
-    <h2>Diet</h2>
-    <button class="dietary-btn">Vegetarian</button>
-    <button class="dietary-btn">Vegan</button>
-    <button class="dietary-btn">Diary free</button>
-    <button class="dietary-btn">Gluten free</button>
-  </div>  
-  <div class="cuisine-filters-container">
-    <h2>Cuisine</h2>
-    <button class="cuisine-btn">Asian</button>
-    <button class="cuisine-btn">Italien</button>
-    <button class="cuisine-btn">Spanish</button>
-    <button class="cuisine-btn">Scandiavian</button>
-  </div>   -->
   <div class="filter-row">
     <div class="meal-filter-container">
       <h2>Meals</h2>
@@ -57,6 +42,7 @@
           id="btnDinner"
         >Dinner</button>
       </div>
+      <!-- sorting -->
     </div>
     <div class="sorting-time-container">
       <h2>Cooking time</h2>
@@ -71,6 +57,7 @@
         >Descending</button>
       </div>
     </div>
+    <!-- random recipe filter -->
     <div class="random-recipe-container">
       <h2>Random recipe</h2>
       <button
@@ -78,18 +65,33 @@
         id="btnRandom"
       >Suprise!</button>
     </div>
+    <!-- search bar -->
+    <div class="search-bar-container">
+      <h2>Search for recipes:</h2>
+      <input
+        class="search-bar"
+        id="searchBar"
+        type="search"
+      >
+      <button
+        class="search-button"
+        id="searchBtn"
+      >🔎</button>
+    </div>
   </div>
-  <!-- <div class="sorting-ingredients-container">
-  <h2>Ingredients</h2>
-  <button class="sorting-ingredient-btn">less the 10</button>
-  <button class="sorting-ingredient-btn">More then 10</button>
-</div> -->
-
+  <!-- loading message -->
+  <div
+    class="loading"
+    id="loading"
+  >
+    <p>Loading recipes... 🍳</p>
+  </div>
   <!-- recipe cards -->
   <div
     class="recipe-card-container"
     id="recipeContainer"
   ></div>
+  <!-- no results text -->
   <div
     class="no-results-container"
     id="noResultsContainer"
