@@ -213,4 +213,3 @@ timeBtns.forEach(clickedButton => {
     clickedButton.classList.add("active")
   })
 })
-
