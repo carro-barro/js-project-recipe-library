@@ -36,27 +36,34 @@ button {
   font-size: 18px;
   font-weight: 500;
   border: 2px solid transparent;
-  border-radius: 50px;
-  padding: 8px 16px;
   transition: border 0.3s ease;
 }
 
 .meal-btn {
   background: #CCFFE2;
-
+  border-radius: 50px;
+  padding: 8px 16px;
 }
 
 .time-btn {
   background: #FFECEA;
+  border-radius: 50px;
+  padding: 8px 16px;
 }
 
-button:hover {
-  border: 2px solid #0018A4;
-}
 
 .time-btn:hover {
   background: #FF6589;
   color: white;
+  border: 2px solid #0018A4;
+}
+
+.meal-btn:hover {
+  border: 2px solid #0018A4;
+}
+
+.random-btn:hover {
+  border: 2px solid #0018A4;
 }
 
 .meal-btn.active {
@@ -72,20 +79,43 @@ button:hover {
 
 .random-btn {
   background: #ffe065;
+  border-radius: 50px;
+  padding: 8px 16px;
 }
 
 .random-btn.active {
   background: #b2ff65;
 }
 
-.search-bar {
-  margin-left: 5px;
-  width: 220px;
-  height: 35px;
-  border-radius: 6px;
+.search-bar-container {
+  display: flex;
+  align-items: center;
   border: 1px solid #0018A4;
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+.search-bar {
+  width: 200px;
+  height: 38px;
+  border-radius: 6px 0 0 6px;
   padding: 8px;
   font-size: 16px;
+  box-sizing: border-box;
+  border: none;
+}
+
+.search-button {
+  height: 38px;
+  box-sizing: border-box;
+  background: #ccd3fa;
+  border-radius: 0 6px 6px 0;
+  width: 45px;
+  transition: .3s ease;
+}
+
+.search-button:hover {
+  background: #8594f4;
 }
 
 .loading p {
